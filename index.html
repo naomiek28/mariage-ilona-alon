@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="theme-color"
+    content="#f6f0e8"
+  />
+
+  <title>Mariage Ilona & Alon</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Aperçu du faire-part sur WhatsApp et les réseaux sociaux -->
+
+<meta property="og:type" content="website" />
+
+<meta
+  property="og:title"
+  content="Mariage d’Ilona & Alon"
+/>
+
+<meta
+  property="og:description"
+  content="Nous avons la joie de vous inviter à célébrer notre mariage."
+/>
+
+<meta
+  property="og:url"
+  content="https://mariage-ilona-alon.vercel.app/"
+/>
+
+<meta
+  property="og:image"
+  content="https://mariage-ilona-alon.vercel.app/images/logo.png"
+/>
+
+<meta property="og:image:type" content="image/png" />
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+
+<meta
+  name="twitter:title"
+  content="Mariage d’Ilona & Alon"
+/>
+
+<meta
+  name="twitter:description"
+  content="Nous avons la joie de vous inviter à célébrer notre mariage."
+/>
+
+<meta
+  name="twitter:image"
+  content="https://mariage-ilona-alon.vercel.app/images/logo.png"
+/>
+</head>
+
+<body class="is-loading">
+  <!-- ÉCRAN DE CHARGEMENT -->
+
+ <div
+  class="page-loader"
+  id="pageLoader"
+  role="status"
+  aria-label="Chargement du faire-part"
+>
+  <div class="loader-content">
+    <div class="loader-logo-shell">
+      <!-- Logo clair de base -->
+
+      <img
+        class="loader-logo loader-logo-base"
+        src="images/logo.png"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <!-- Logo doré qui se remplit -->
+
+      <div class="loader-logo-fill">
+        <img
+          class="loader-logo"
+          src="images/logo.png"
+          alt="Ilona et Alon"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- MUSIQUE -->
+
+  <audio
+    id="weddingMusic"
+    src="audio/musique.mp3"
+    preload="auto"
+  ></audio>
+
+  <button
+    class="music-toggle"
+    id="musicToggle"
+    type="button"
+    aria-label="Musique"
+  >
+    ♪
+  </button>
+
+  <!-- PAGE DE L’ENVELOPPE -->
+
+  <section
+    class="opening"
+    id="opening"
+  >
+    <div class="opening-content">
+      <p class="intro-text">
+        UNE INVITATION DE LA PART DE
+      </p>
+
+      <h1 class="couple-names">
+        Ilona & Alon
+      </h1>
+
+      <button
+        class="envelope-button"
+        id="openEnvelope"
+        type="button"
+        aria-label="Ouvrir l’invitation"
+      >
+        <img
+          src="images/enveloppe.png"
+          alt="Enveloppe"
+          class="envelope-img"
+        />
+      </button>
+
+      <p class="open-instruction">
+        Touchez l’enveloppe pour l’ouvrir
+      </p>
+    </div>
+  </section>
+
+  <!-- FAIRE-PART -->
+
+  <main
+    class="invitation"
+    id="invitation"
+  >
+    <!-- INVITATION PRINCIPALE -->
+
+    <section
+      class="invitation-page first-page reveal-on-scroll"
+    >
+      <div class="arch-card">
+        <p
+          class="bsd"
+          dir="rtl"
+        >
+          בס״ד
+        </p>
+
+        <p
+          class="pasuk"
+          dir="rtl"
+        >
+          מָצָא אִשָׁה מָצָה טוֹב וַיָפֶק רָצוֹן מֵה'
+        </p>
+
+        <div class="tiny-separator"></div>
+
+        <!-- FAMILLES -->
+
+        <div class="families">
+          <div>
+            <p>
+              M. & Mme Gilbert Dray
+            </p>
+
+            <p>
+              Mme Eliane Halimi
+            </p>
+
+            <p>
+              M. & Mme Yohan Zerdoun
+            </p>
+          </div>
+
+          <div>
+            <p>
+              M. & Mme Francis Attali
+            </p>
+
+            <p>
+              M. & Mme Dov Haddad
+            </p>
+
+            <p>
+              M. & Mme Yohann Attali
+            </p>
+          </div>
+        </div>
+
+        <!-- TEXTE D’INVITATION -->
+
+        <p class="invite-text">
+          C’est avec une immense reconnaissance
+          envers Hashem que nous avons la joie
+          de vous faire part du mariage de nos
+          enfants et petits-enfants
+        </p>
+
+        <!-- NOMS DES MARIÉS -->
+
+        <div class="names-block">
+          <h2 class="couple-script">
+            <span class="name-wrap">
+              Ilona
+
+              <span
+                class="hebrew-name"
+                dir="rtl"
+              >
+                אילונה שרה
+              </span>
+            </span>
+
+            <span class="amp">
+              &
+            </span>
+
+            <span class="name-wrap">
+              Alon
+
+              <span
+                class="hebrew-name"
+                dir="rtl"
+              >
+                אלון יוסף משה
+              </span>
+            </span>
+          </h2>
+        </div>
+
+        <p class="presence">
+          Et serions honorés de votre présence le
+        </p>
+
+        <!-- DATE -->
+
+        <p class="date-line">
+          27 octobre 2026
+        </p>
+
+        <p
+          class="hebrew-date"
+          dir="rtl"
+        >
+          ט״ז חשון תשפ״ז
+        </p>
+
+        <!-- HORAIRES -->
+
+        <p class="time-line">
+          Kabalat Panim à 18h
+        </p>
+
+        <p class="time-line">
+          Houppa à 19h précises
+        </p>
+
+        <!-- LIEU -->
+
+        <p class="venue">
+          SAKOYA EVENT HALL
+        </p>
+
+        <p class="city">
+          MAALE HAHAMISHA, ISRAËL
+        </p>
+
+        <!-- PENSÉE -->
+
+        
+
+        <!-- COMPTE À REBOURS -->
+
+        <div
+          class="countdown"
+          id="countdown"
+        >
+          <div>
+            <span id="days">00</span>
+            <small>JOURS</small>
+          </div>
+
+          <div>
+            <span id="hours">00</span>
+            <small>HEURES</small>
+          </div>
+
+          <div>
+            <span id="minutes">00</span>
+            <small>MIN</small>
+          </div>
+
+          <div>
+            <span id="seconds">00</span>
+            <small>SEC</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIER LOGO -->
+
+    <div class="logo-separator reveal-on-scroll">
+      <img
+        src="images/logo.png"
+        alt="Ilona et Alon"
+      />
+    </div>
+
+    <!-- LIEU DE RÉCEPTION -->
+
+    <section class="info-section reveal-on-scroll">
+      <div class="layered-card">
+        <div class="inner-panel">
+          <p class="card-eyebrow">
+            Lieu de réception
+          </p>
+
+          <h2 class="section-title">
+            Salle Sakoya
+          </h2>
+
+          <p class="normal-text">
+            Maale HaHamisha, Israël
+          </p>
+
+          <div class="button-row">
+            <a
+              class="luxury-button primary"
+              href="https://waze.com/ul?q=Sakoya%20Event%20Hall%20Maale%20HaHamisha%20Israel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ouvrir Waze
+            </a>
+
+            <a
+              class="luxury-button secondary"
+              id="calendarLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ajouter à Google Calendar
+            </a>
+
+           
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEUXIÈME LOGO -->
+
+    <div class="logo-separator reveal-on-scroll">
+      <img
+        src="images/logo.png"
+        alt="Ilona et Alon"
+      />
+    </div>
+
+    <!-- RSVP -->
+
+    <section class="info-section reveal-on-scroll">
+      <div class="layered-card">
+        <div class="inner-panel">
+          <p class="card-eyebrow">
+            Réponse souhaitée
+          </p>
+
+          <h2 class="section-title">
+            RSVP
+          </h2>
+
+          <p class="normal-text">
+            Merci de nous confirmer votre présence.
+          </p>
+
+          <form
+            class="rsvp-form"
+            id="rsvpForm"
+          >
+            <!-- CHOIX DU CÔTÉ -->
+
+            <select
+              id="guestSide"
+              required
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                Choisissez votre côté
+              </option>
+
+              <option value="ilona">
+                Côté Ilona
+              </option>
+
+              <option value="alon">
+                Côté Alon
+              </option>
+            </select>
+
+            <!-- NOM -->
+
+            <input
+              id="guestName"
+              type="text"
+              placeholder="Nom complet"
+              required
+            />
+
+            <!-- PRÉSENCE -->
+
+            <div class="attendance-choice">
+              <label>
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="yes"
+                  checked
+                />
+
+                <span>
+                  Oui, je viens
+                </span>
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="no"
+                />
+
+                <span>
+                  Non, je ne pourrai pas
+                </span>
+              </label>
+            </div>
+
+            <!-- NOMBRE DE PERSONNES -->
+
+            <select id="guestCount">
+              <option value="1">
+                1 personne
+              </option>
+
+              <option value="2">
+                2 personnes
+              </option>
+
+              <option value="3">
+                3 personnes
+              </option>
+
+              <option value="4">
+                4 personnes
+              </option>
+
+              <option value="5">
+                5 personnes
+              </option>
+
+              <option value="6">
+                6 personnes
+              </option>
+            </select>
+
+            <!-- MESSAGE -->
+
+            <textarea
+              id="guestMessage"
+              placeholder="Un mot pour les mariés"
+            ></textarea>
+
+            <button
+              class="luxury-button primary full"
+              type="submit"
+            >
+              Envoyer
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICITÉ -->
+
+    <footer class="creator-credit">
+      <p>
+        Faire-part digital réalisé par
+        Naomie Karsenty
+      </p>
+
+      <a
+        href="https://wa.me/972534235532"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contacter Naomie Karsenty sur WhatsApp"
+      >
+        <svg
+          class="whatsapp-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.6Z"
+          ></path>
+
+          <path
+            d="M8.2 7.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3.1.5-.1.7l-.7.8c-.2.2-.1.4 0 .6.7 1.3 1.8 2.4 3.2 3 .2.1.4.1.6-.1l.9-1.1c.2-.2.4-.3.7-.1l2 .9c.3.1.4.3.4.5 0 .4-.2 1.3-.8 1.8-.6.6-1.5.9-2.5.7-1.2-.2-2.8-.8-4.5-2.3-1.4-1.3-2.5-2.8-3-4.2-.5-1.3 0-2.4.4-2.9l.9-.3Z"
+          ></path>
+        </svg>
+
+        <span>
+          +972-53-423-5532
+        </span>
+      </a>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
