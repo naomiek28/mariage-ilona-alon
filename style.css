@@ -514,7 +514,7 @@ body.invitation-open .invitation {
   position: absolute;
 
   left: 50%;
-  bottom: 3px;
+  bottom: -2px;
 
   display: block;
   width: max-content;
