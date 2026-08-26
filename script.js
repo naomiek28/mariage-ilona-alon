@@ -453,11 +453,16 @@ function openInvitation() {
    ========================================= */
 
 function createCalendarLinks() {
-  const startDate =
-    "20261027T154500Z";
+  /*
+    Mariage le 27 octobre 2026
+    Israël = UTC+2 à cette date
 
-  const endDate =
-    "20261027T213000Z";
+    Kabalat Panim : 18h00 Israël = 16h00 UTC
+    Houppa : 19h00 Israël = 17h00 UTC
+  */
+
+  const startDate = "20261027T160000Z";
+  const endDate = "20261027T213000Z";
 
   const title =
     encodeURIComponent(
@@ -466,8 +471,8 @@ function createCalendarLinks() {
 
   const details =
     encodeURIComponent(
-      "Kabalat Panim à 17h45. " +
-      "Houppa à 18h30 précises."
+      "Kabalat Panim à 18h. " +
+      "Houppa à 19h précises."
     );
 
   const location =
@@ -486,8 +491,7 @@ function createCalendarLinks() {
     `&location=${location}`;
 
   if (calendarLink) {
-    calendarLink.href =
-      googleCalendarUrl;
+    calendarLink.href = googleCalendarUrl;
   }
 
   const icsContent = [
@@ -498,10 +502,10 @@ function createCalendarLinks() {
     "BEGIN:VEVENT",
     "UID:mariage-ilona-alon-20261027",
     "DTSTAMP:20260825T000000Z",
-    "DTSTART:20261027T154500Z",
+    "DTSTART:20261027T160000Z",
     "DTEND:20261027T213000Z",
     "SUMMARY:Mariage Ilona & Alon",
-    "DESCRIPTION:Kabalat Panim à 17h45. Houppa à 18h30 précises.",
+    "DESCRIPTION:Kabalat Panim à 18h. Houppa à 19h précises.",
     "LOCATION:Sakoya Event Hall, Maale HaHamisha, Israël",
     "END:VEVENT",
     "END:VCALENDAR"
@@ -512,15 +516,12 @@ function createCalendarLinks() {
       new Blob(
         [icsContent],
         {
-          type:
-            "text/calendar;charset=utf-8"
+          type: "text/calendar;charset=utf-8"
         }
       );
 
     appleCalendarLink.href =
-      URL.createObjectURL(
-        calendarFile
-      );
+      URL.createObjectURL(calendarFile);
 
     appleCalendarLink.download =
       "mariage-ilona-et-alon.ics";
