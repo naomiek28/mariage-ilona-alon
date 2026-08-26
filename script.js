@@ -6,7 +6,7 @@ const googleScriptUrl =
   "https://script.google.com/macros/s/AKfycbxylv2YUyPssrzcc2WemS0XBZmtP3du4qBtdVrAQEsfMiL6b8NMiiKK2JP81KxG7jxeoQ/exec";
 
 /* =========================================
-   ÉLÉMENTS DE LA PAGE
+   ÉLÉMENTS
    ========================================= */
 
 const pageLoader =
@@ -37,33 +37,38 @@ const rsvpForm =
 const weddingDate =
   new Date("2026-10-27T18:30:00+02:00");
 
-const musicStartTime = 37;
+/*
+  1 minute 14 secondes = 74 secondes.
+*/
+
+const musicEndTime = 74;
 
 let invitationOpened = false;
+
+let musicReachedEnd = false;
 
 /* =========================================
    OUTILS
    ========================================= */
 
-function wait(milliseconds) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, milliseconds);
-  });
-}
-
 function preloadImage(source) {
   return new Promise((resolve) => {
-    const image = new Image();
+    const image =
+      new Image();
 
-    image.onload = resolve;
-    image.onerror = resolve;
+    image.onload =
+      resolve;
 
-    image.src = source;
+    image.onerror =
+      resolve;
+
+    image.src =
+      source;
   });
 }
 
 /* =========================================
-   PRÉCHARGEMENT DES POLICES
+   POLICES
    ========================================= */
 
 function preloadFonts() {
@@ -99,29 +104,35 @@ function preloadFonts() {
 }
 
 /* =========================================
-   PRÉCHARGEMENT DE LA MUSIQUE
+   PRÉCHARGEMENT AUDIO
    ========================================= */
 
 function preloadAudio() {
   return new Promise((resolve) => {
     if (!weddingMusic) {
       resolve();
+
       return;
     }
 
-    if (weddingMusic.readyState >= 2) {
+    if (
+      weddingMusic.readyState >= 2
+    ) {
       resolve();
+
       return;
     }
 
-    let finished = false;
+    let finished =
+      false;
 
     function finish() {
       if (finished) {
         return;
       }
 
-      finished = true;
+      finished =
+        true;
 
       weddingMusic.removeEventListener(
         "loadeddata",
@@ -159,7 +170,10 @@ function preloadAudio() {
       { once: true }
     );
 
-    setTimeout(finish, 3500);
+    setTimeout(
+      finish,
+      3500
+    );
 
     try {
       weddingMusic.load();
@@ -170,15 +184,10 @@ function preloadAudio() {
 }
 
 /* =========================================
-   ÉCRAN DE CHARGEMENT
+   LOADER
    ========================================= */
 
 function initializePageLoader() {
-  /*
-    Les fichiers se chargent sans pouvoir
-    bloquer l’ouverture de la page.
-  */
-
   Promise.allSettled([
     preloadImage(
       "images/background-envelope.jpeg"
@@ -202,8 +211,9 @@ function initializePageLoader() {
   ]).catch(() => {});
 
   /*
-    4 secondes de remplissage du logo
-    puis 1 seconde avec le logo complet.
+    Logo :
+    4 secondes de remplissage
+    + environ 1 seconde complet.
   */
 
   setTimeout(() => {
@@ -216,13 +226,8 @@ function initializePageLoader() {
     );
 
     setTimeout(() => {
-      const loader =
-        document.getElementById(
-          "pageLoader"
-        );
-
-      if (loader) {
-        loader.remove();
+      if (pageLoader) {
+        pageLoader.remove();
       }
     }, 800);
   }, 5000);
@@ -232,73 +237,71 @@ function initializePageLoader() {
    MUSIQUE
    ========================================= */
 
-function placeMusicAt37Seconds() {
+/*
+  Remet la chanson au début.
+*/
+
+function resetMusicToStart() {
   if (!weddingMusic) {
     return;
   }
 
   try {
-    if (
-      !Number.isFinite(
-        weddingMusic.duration
-      ) ||
-      weddingMusic.duration >
-        musicStartTime
-    ) {
-      weddingMusic.currentTime =
-        musicStartTime;
-    }
+    weddingMusic.currentTime =
+      0;
+
+    musicReachedEnd =
+      false;
   } catch (error) {
-    /*
-      Le positionnement sera effectué
-      après le chargement des informations.
-    */
+    /* rien */
   }
 }
 
-function playMusic() {
+/*
+  Lance la chanson depuis 0:00
+  lors de l'ouverture de l'enveloppe.
+*/
+
+function playMusicFromStart() {
   if (!weddingMusic) {
     return;
   }
 
+  musicReachedEnd =
+    false;
+
   /*
-    Si les informations sont déjà chargées,
-    on place la musique à 37 secondes.
+    On revient au tout début.
   */
 
-  if (weddingMusic.readyState >= 1) {
-    placeMusicAt37Seconds();
-  } else {
-    /*
-      Sinon, on prépare le positionnement.
-      On ne retarde pas l’appel à play(),
-      pour que le téléphone autorise le son.
-    */
-
-    weddingMusic.addEventListener(
-      "loadedmetadata",
-      placeMusicAt37Seconds,
-      { once: true }
-    );
+  try {
+    weddingMusic.currentTime =
+      0;
+  } catch (error) {
+    /* rien */
   }
-
-  /*
-    Cet appel est effectué directement
-    pendant le clic sur l’enveloppe.
-  */
 
   const playPromise =
     weddingMusic.play();
 
   if (
     playPromise &&
-    typeof playPromise.then === "function"
+    typeof playPromise.then ===
+      "function"
   ) {
     playPromise
-      .then(updateMusicButton)
-      .catch(updateMusicButton);
+      .then(() => {
+        updateMusicButton();
+      })
+      .catch(() => {
+        updateMusicButton();
+      });
   }
 }
+
+/*
+  Bouton musique.
+*/
 
 function toggleMusic() {
   if (!weddingMusic) {
@@ -306,25 +309,60 @@ function toggleMusic() {
   }
 
   if (weddingMusic.paused) {
+    /*
+      Si elle s'est arrêtée automatiquement
+      à 1:14, un nouveau clic recommence
+      depuis le début.
+    */
+
+    if (
+      musicReachedEnd ||
+      weddingMusic.currentTime >=
+        musicEndTime
+    ) {
+      resetMusicToStart();
+    }
+
     const playPromise =
       weddingMusic.play();
 
     if (
       playPromise &&
-      typeof playPromise.then === "function"
+      typeof playPromise.then ===
+        "function"
     ) {
       playPromise
-        .then(updateMusicButton)
-        .catch(updateMusicButton);
+        .then(
+          updateMusicButton
+        )
+        .catch(
+          updateMusicButton
+        );
     }
   } else {
+    /*
+      Pause manuelle.
+
+      Ici on NE remet PAS la musique
+      à zéro afin qu'un clic suivant
+      reprenne au même endroit.
+    */
+
     weddingMusic.pause();
+
     updateMusicButton();
   }
 }
 
+/*
+  Icône du bouton.
+*/
+
 function updateMusicButton() {
-  if (!musicToggle || !weddingMusic) {
+  if (
+    !musicToggle ||
+    !weddingMusic
+  ) {
     return;
   }
 
@@ -337,12 +375,48 @@ function updateMusicButton() {
     "aria-label",
     weddingMusic.paused
       ? "Lancer la musique"
-      : "Arrêter la musique"
+      : "Mettre la musique en pause"
   );
 }
 
+/*
+  Arrêt automatique à exactement
+  1:14 = 74 secondes.
+*/
+
+function checkMusicEnd() {
+  if (!weddingMusic) {
+    return;
+  }
+
+  if (
+    weddingMusic.currentTime >=
+    musicEndTime
+  ) {
+    weddingMusic.pause();
+
+    /*
+      On garde 74 comme position
+      pour savoir que la chanson
+      a atteint sa limite.
+    */
+
+    try {
+      weddingMusic.currentTime =
+        musicEndTime;
+    } catch (error) {
+      /* rien */
+    }
+
+    musicReachedEnd =
+      true;
+
+    updateMusicButton();
+  }
+}
+
 /* =========================================
-   OUVERTURE DE L’INVITATION
+   OUVERTURE INVITATION
    ========================================= */
 
 function openInvitation() {
@@ -350,14 +424,15 @@ function openInvitation() {
     return;
   }
 
-  invitationOpened = true;
+  invitationOpened =
+    true;
 
   /*
-    La musique est lancée directement
-    depuis le clic sur l’enveloppe.
+    La musique démarre immédiatement
+    à 0:00 grâce au clic utilisateur.
   */
 
-  playMusic();
+  playMusicFromStart();
 
   document.body.classList.add(
     "invitation-open"
@@ -374,7 +449,7 @@ function openInvitation() {
 }
 
 /* =========================================
-   CALENDRIERS
+   CALENDRIER
    ========================================= */
 
 function createCalendarLinks() {
@@ -456,7 +531,10 @@ function createCalendarLinks() {
    COMPTE À REBOURS
    ========================================= */
 
-function setCountdownValue(id, value) {
+function setCountdownValue(
+  id,
+  value
+) {
   const element =
     document.getElementById(id);
 
@@ -465,18 +543,25 @@ function setCountdownValue(id, value) {
   }
 
   element.textContent =
-    String(value).padStart(2, "0");
+    String(value).padStart(
+      2,
+      "0"
+    );
 }
 
 function updateCountdown() {
-  const now = new Date();
+  const now =
+    new Date();
 
   const distance =
     weddingDate.getTime() -
     now.getTime();
 
   const safeDistance =
-    Math.max(distance, 0);
+    Math.max(
+      distance,
+      0
+    );
 
   const days =
     Math.floor(
@@ -508,6 +593,10 @@ function updateCountdown() {
       ) % 60
     );
 
+  /*
+    Compte à rebours de l'invitation.
+  */
+
   setCountdownValue(
     "days",
     days
@@ -527,10 +616,35 @@ function updateCountdown() {
     "seconds",
     seconds
   );
+
+  /*
+    Même compte à rebours
+    dans le loader.
+  */
+
+  setCountdownValue(
+    "loaderDays",
+    days
+  );
+
+  setCountdownValue(
+    "loaderHours",
+    hours
+  );
+
+  setCountdownValue(
+    "loaderMinutes",
+    minutes
+  );
+
+  setCountdownValue(
+    "loaderSeconds",
+    seconds
+  );
 }
 
 /* =========================================
-   ANIMATIONS AU DÉFILEMENT
+   ANIMATIONS AU SCROLL
    ========================================= */
 
 function setupScrollReveal() {
@@ -539,12 +653,19 @@ function setupScrollReveal() {
       ".reveal-on-scroll"
     );
 
-  if (!("IntersectionObserver" in window)) {
-    elements.forEach((element) => {
-      element.classList.add(
-        "is-visible"
-      );
-    });
+  if (
+    !(
+      "IntersectionObserver"
+      in window
+    )
+  ) {
+    elements.forEach(
+      (element) => {
+        element.classList.add(
+          "is-visible"
+        );
+      }
+    );
 
     return;
   }
@@ -552,28 +673,38 @@ function setupScrollReveal() {
   const observer =
     new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(
-              "is-visible"
-            );
-
-            observer.unobserve(
+        entries.forEach(
+          (entry) => {
+            if (
+              entry.isIntersecting
+            ) {
               entry.target
-            );
+                .classList.add(
+                  "is-visible"
+                );
+
+              observer.unobserve(
+                entry.target
+              );
+            }
           }
-        });
+        );
       },
       {
         threshold: 0.16,
+
         rootMargin:
           "0px 0px -40px 0px"
       }
     );
 
-  elements.forEach((element) => {
-    observer.observe(element);
-  });
+  elements.forEach(
+    (element) => {
+      observer.observe(
+        element
+      );
+    }
+  );
 }
 
 function revealVisibleElements() {
@@ -582,27 +713,32 @@ function revealVisibleElements() {
       ".reveal-on-scroll"
     );
 
-  elements.forEach((element) => {
-    const rectangle =
-      element.getBoundingClientRect();
+  elements.forEach(
+    (element) => {
+      const rectangle =
+        element
+          .getBoundingClientRect();
 
-    if (
-      rectangle.top <
-        window.innerHeight &&
-      rectangle.bottom > 0
-    ) {
-      element.classList.add(
-        "is-visible"
-      );
+      if (
+        rectangle.top <
+          window.innerHeight &&
+        rectangle.bottom > 0
+      ) {
+        element.classList.add(
+          "is-visible"
+        );
+      }
     }
-  });
+  );
 }
 
 /* =========================================
-   FORMULAIRE RSVP
+   RSVP
    ========================================= */
 
-async function handleRsvpSubmit(event) {
+async function handleRsvpSubmit(
+  event
+) {
   event.preventDefault();
 
   const guestSideElement =
@@ -646,14 +782,18 @@ async function handleRsvpSubmit(event) {
     guestSideElement.value;
 
   const guestName =
-    guestNameElement.value.trim();
+    guestNameElement
+      .value
+      .trim();
 
   const guestCount =
     guestCountElement.value;
 
   const guestMessage =
     guestMessageElement
-      ? guestMessageElement.value.trim()
+      ? guestMessageElement
+          .value
+          .trim()
       : "";
 
   const attendance =
@@ -683,11 +823,20 @@ async function handleRsvpSubmit(event) {
       : "Non, je ne pourrai pas";
 
   const data = {
-    side: guestSide,
-    name: guestName,
-    attendance: attendanceText,
-    guestCount: guestCount,
-    message: guestMessage
+    side:
+      guestSide,
+
+    name:
+      guestName,
+
+    attendance:
+      attendanceText,
+
+    guestCount:
+      guestCount,
+
+    message:
+      guestMessage
   };
 
   const submitButton =
@@ -696,7 +845,9 @@ async function handleRsvpSubmit(event) {
     );
 
   if (submitButton) {
-    submitButton.disabled = true;
+    submitButton.disabled =
+      true;
+
     submitButton.textContent =
       "Envoi...";
   }
@@ -705,8 +856,11 @@ async function handleRsvpSubmit(event) {
     await fetch(
       googleScriptUrl,
       {
-        method: "POST",
-        mode: "no-cors",
+        method:
+          "POST",
+
+        mode:
+          "no-cors",
 
         headers: {
           "Content-Type":
@@ -729,7 +883,9 @@ async function handleRsvpSubmit(event) {
     );
   } finally {
     if (submitButton) {
-      submitButton.disabled = false;
+      submitButton.disabled =
+        false;
+
       submitButton.textContent =
         "Envoyer";
     }
@@ -755,7 +911,8 @@ if (musicToggle) {
 }
 
 if (weddingMusic) {
-  weddingMusic.loop = false;
+  weddingMusic.loop =
+    false;
 
   weddingMusic.addEventListener(
     "play",
@@ -768,26 +925,30 @@ if (weddingMusic) {
   );
 
   /*
-    La chanson recommence à 37 secondes
-    lorsqu’elle arrive à la fin.
+    Vérification permanente pendant
+    la lecture.
+
+    Dès qu'on atteint 74 secondes,
+    la musique est arrêtée.
+  */
+
+  weddingMusic.addEventListener(
+    "timeupdate",
+    checkMusicEnd
+  );
+
+  /*
+    Si jamais le MP3 se termine
+    naturellement avant.
   */
 
   weddingMusic.addEventListener(
     "ended",
     () => {
-      placeMusicAt37Seconds();
+      musicReachedEnd =
+        true;
 
-      const replayPromise =
-        weddingMusic.play();
-
-      if (
-        replayPromise &&
-        typeof replayPromise.then === "function"
-      ) {
-        replayPromise
-          .then(updateMusicButton)
-          .catch(updateMusicButton);
-      }
+      updateMusicButton();
     }
   );
 }
@@ -806,6 +967,13 @@ if (rsvpForm) {
 initializePageLoader();
 
 createCalendarLinks();
+
+/*
+  Important :
+  on calcule immédiatement le compte
+  à rebours pour éviter de voir 00
+  pendant la première seconde.
+*/
 
 updateCountdown();
 
