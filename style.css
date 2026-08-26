@@ -7,6 +7,7 @@
   --soft-brown: #98765e;
   --ivory: #fffaf0;
   --champagne: #d8c6a4;
+  --gold: #a88954;
 }
 
 * {
@@ -21,17 +22,23 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+
   font-family: "Cormorant Garamond", serif;
+
   color: var(--chocolate);
   background: #f8f0ea;
 }
 
-/* BACKGROUNDS */
+/* =========================================
+   BACKGROUNDS
+   ========================================= */
 
 body::before {
   content: "";
+
   position: fixed;
   inset: 0;
+
   width: min(100vw, var(--page-width));
   margin: auto;
 
@@ -56,8 +63,10 @@ body::before {
 
 body::after {
   content: "";
+
   position: fixed;
   inset: 0;
+
   width: min(100vw, var(--page-width));
   margin: auto;
 
@@ -65,6 +74,7 @@ body::after {
     rgba(255, 248, 240, 0.07);
 
   pointer-events: none;
+
   z-index: -2;
 }
 
@@ -83,10 +93,13 @@ body.invitation-open::after {
     rgba(255, 248, 240, 0.025);
 }
 
-/* MUSIQUE */
+/* =========================================
+   MUSIQUE
+   ========================================= */
 
 .music-toggle {
   position: fixed;
+
   top: 18px;
 
   left:
@@ -108,6 +121,7 @@ body.invitation-open::after {
     rgba(255, 250, 240, 0.9);
 
   color: var(--chocolate);
+
   font-size: 23px;
 
   box-shadow:
@@ -117,11 +131,16 @@ body.invitation-open::after {
   cursor: pointer;
 }
 
-/* PAGE DE L’ENVELOPPE */
+/* =========================================
+   PAGE DE L'ENVELOPPE
+   ========================================= */
 
 .opening {
   min-height: 100svh;
-  width: min(100vw, var(--page-width));
+
+  width:
+    min(100vw, var(--page-width));
+
   margin: 0 auto;
 
   display: grid;
@@ -134,25 +153,33 @@ body.invitation-open::after {
 
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: center;
 
-  padding: 110px 20px 38px;
+  padding:
+    110px 20px 38px;
+
   text-align: center;
 }
 
 .intro-text {
   width: 230px;
-  margin: 0 auto 8px;
+
+  margin:
+    0 auto 8px;
 
   font-size:
     clamp(11px, 3vw, 14px);
 
   font-weight: 500;
+
   line-height: 1.2;
+
   letter-spacing: 0.12em;
 
   color: var(--soft-brown);
+
   white-space: nowrap;
 
   text-shadow:
@@ -161,7 +188,8 @@ body.invitation-open::after {
 }
 
 .couple-names {
-  margin: 0 0 88px;
+  margin:
+    0 0 88px;
 
   font-family:
     "Great Vibes", cursive;
@@ -170,9 +198,11 @@ body.invitation-open::after {
     clamp(35px, 10vw, 50px);
 
   font-weight: 400;
+
   line-height: 0.95;
 
   color: var(--soft-brown);
+
   white-space: nowrap;
 
   text-shadow:
@@ -181,10 +211,13 @@ body.invitation-open::after {
 }
 
 .envelope-button {
-  width: min(64vw, 286px);
+  width:
+    min(64vw, 286px);
 
   padding: 0;
+
   border: 0;
+
   background: transparent;
 
   cursor: pointer;
@@ -220,20 +253,24 @@ body.invitation-open::after {
 
 .envelope-img {
   display: block;
+
   width: 100%;
   height: auto;
 }
 
 .open-instruction {
-  margin: 48px 0 0;
+  margin:
+    48px 0 0;
 
   font-size:
     clamp(14px, 3.6vw, 16px);
 
   font-weight: 500;
+
   line-height: 1;
 
   color: var(--soft-brown);
+
   white-space: nowrap;
 
   text-shadow:
@@ -247,7 +284,9 @@ body.invitation-open::after {
     infinite;
 }
 
-/* OUVERTURE DE L’INVITATION */
+/* =========================================
+   OUVERTURE INVITATION
+   ========================================= */
 
 .invitation {
   display: none;
@@ -266,26 +305,34 @@ body.invitation-open .invitation {
   display: block;
 }
 
-/* SECTIONS */
+/* =========================================
+   SECTIONS
+   ========================================= */
 
 .invitation-page,
 .info-section {
   min-height: 100svh;
+
   width: 100%;
 
-  padding: 70px 18px 48px;
+  padding:
+    70px 18px 48px;
 
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
 
 .first-page {
   padding-top: 72px;
+
   align-items: flex-start;
 }
 
-/* CARTE PRINCIPALE */
+/* =========================================
+   CARTE PRINCIPALE
+   ========================================= */
 
 .arch-card {
   position: relative;
@@ -327,7 +374,9 @@ body.invitation-open .invitation {
 
 .arch-card::before {
   content: "";
+
   position: absolute;
+
   inset: 12px;
 
   border-radius:
@@ -340,19 +389,25 @@ body.invitation-open .invitation {
   pointer-events: none;
 }
 
-/* בס״ד ET PASSOUK */
+/* =========================================
+   BSD + PASSOUK
+   ========================================= */
 
 .bsd {
-  margin: 0 0 8px;
+  margin:
+    0 0 8px;
 
   font-family:
     "Heebo", sans-serif;
 
   font-size: 14px;
+
   font-weight: 300;
+
   line-height: 1.2;
 
   color: #6f6258;
+
   direction: rtl;
 }
 
@@ -363,11 +418,13 @@ body.invitation-open .invitation {
     "Heebo", sans-serif;
 
   font-size: 20px;
+
   font-weight: 300;
+
   line-height: 1.35;
 
-  letter-spacing: 0;
   color: #6f6258;
+
   direction: rtl;
 }
 
@@ -389,23 +446,30 @@ body.invitation-open .invitation {
     );
 }
 
-/* FAMILLES */
+/* =========================================
+   FAMILLES
+   ========================================= */
 
 .families {
   display: grid;
+
   grid-template-columns:
     1fr 1fr;
 
   gap: 18px;
 
-  margin: 0 0 28px;
+  margin:
+    0 0 28px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 16px;
+
   font-style: italic;
+
   font-weight: 400;
+
   line-height: 1.45;
 }
 
@@ -418,34 +482,46 @@ body.invitation-open .invitation {
 }
 
 .families p {
-  margin: 0 0 5px;
+  margin:
+    0 0 5px;
 }
 
-/* TEXTE D’INVITATION */
+/* =========================================
+   TEXTE INVITATION
+   ========================================= */
 
 .invite-text {
   max-width: 310px;
-  margin: 0 auto 24px;
+
+  margin:
+    0 auto 24px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 21px;
+
   font-style: italic;
+
   font-weight: 400;
+
   line-height: 1.5;
 }
 
-/* NOMS DES MARIÉS */
+/* =========================================
+   NOMS
+   ========================================= */
 
 .names-block {
-  margin: 0 auto 25px;
+  margin:
+    0 auto 25px;
 }
 
 .couple-script {
   position: relative;
 
   display: inline-block;
+
   margin: 0;
 
   overflow: visible;
@@ -457,6 +533,7 @@ body.invitation-open .invitation {
     clamp(62px, 16vw, 82px);
 
   font-weight: 400;
+
   line-height: 0.9;
 
   color: var(--soft-brown);
@@ -469,21 +546,21 @@ body.invitation-open .invitation {
 .couple-script .amp {
   display: inline-block;
 
-  margin: 0 6px;
+  margin:
+    0 6px;
 
   font-size: 0.75em;
+
   color: #b19a74;
 }
 
 .name-wrap {
   position: relative;
+
   display: inline-block;
 
-  /*
-    La couleur de fond garantit que
-    les lettres ne disparaissent jamais.
-  */
-  background-color: #98765e;
+  background-color:
+    #98765e;
 
   background-image:
     linear-gradient(
@@ -497,38 +574,51 @@ body.invitation-open .invitation {
       transparent 100%
     );
 
-  background-size: 260% 100%;
-  background-position: 100% center;
-  background-repeat: no-repeat;
+  background-size:
+    260% 100%;
 
-  -webkit-background-clip: text;
-  background-clip: text;
+  background-position:
+    100% center;
+
+  background-repeat:
+    no-repeat;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
 
   color: transparent;
-  -webkit-text-fill-color: transparent;
-}
 
-/* NOMS EN HÉBREU */
+  -webkit-text-fill-color:
+    transparent;
+}
 
 .hebrew-name {
   position: absolute;
 
   left: 50%;
-  bottom: -4px;
+  bottom: 2px;
 
   display: block;
+
   width: max-content;
 
-  padding: 1px 5px;
+  padding:
+    1px 5px;
 
   font-family:
     "Frank Ruhl Libre", serif;
 
   font-size: 17px;
+
   font-weight: 500;
+
   line-height: 1;
 
-  background-color: #5f4938;
+  background-color:
+    #5f4938;
 
   background-image:
     linear-gradient(
@@ -542,15 +632,25 @@ body.invitation-open .invitation {
       transparent 100%
     );
 
-  background-size: 260% 100%;
-  background-position: 100% center;
-  background-repeat: no-repeat;
+  background-size:
+    260% 100%;
 
-  -webkit-background-clip: text;
-  background-clip: text;
+  background-position:
+    100% center;
+
+  background-repeat:
+    no-repeat;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
 
   color: transparent;
-  -webkit-text-fill-color: transparent;
+
+  -webkit-text-fill-color:
+    transparent;
 
   opacity: 0;
 
@@ -558,115 +658,139 @@ body.invitation-open .invitation {
     translateX(-50%)
     scaleX(0);
 
-  transform-origin: center;
+  transform-origin:
+    center;
 }
-
-/* Aucun rayon rectangulaire */
 
 .couple-script::after,
 .name-wrap::after,
 .hebrew-name::after {
   content: none !important;
+
   display: none !important;
 }
 
-/* TEXTES FRANÇAIS */
+/* =========================================
+   TEXTES
+   ========================================= */
 
 .presence,
 .time-line,
 .normal-text {
-  margin: 0 0 10px;
+  margin:
+    0 0 10px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 19px;
+
   font-style: italic;
+
   font-weight: 400;
+
   line-height: 1.4;
 }
 
-/* DATE EN GRAS */
-
 .date-line {
-  margin: 18px 0 4px;
+  margin:
+    18px 0 4px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 23px;
+
   font-style: italic;
+
   font-weight: 700;
+
   line-height: 1.3;
 }
 
 .hebrew-date {
-  margin: 0 0 14px;
+  margin:
+    0 0 14px;
 
   font-family:
     "Frank Ruhl Libre", serif;
 
   font-size: 21px;
+
   font-weight: 700;
 }
 
-/* NOM DE LA SALLE EN GRAS */
-
 .venue {
-  margin: 18px 0 5px;
+  margin:
+    18px 0 5px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 18px;
+
   font-style: italic;
+
   font-weight: 700;
 
-  letter-spacing: 0.1em;
+  letter-spacing:
+    0.1em;
 }
 
 .city {
-  margin: 0 0 18px;
+  margin:
+    0 0 18px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 14px;
+
   font-style: italic;
+
   font-weight: 400;
 
-  letter-spacing: 0.1em;
+  letter-spacing:
+    0.1em;
 }
 
 .memory {
   max-width: 305px;
-  margin: 16px auto 18px;
+
+  margin:
+    16px auto 18px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 16px;
+
   font-style: italic;
-  font-weight: 400;
+
   line-height: 1.45;
 }
 
-/* COMPTE À REBOURS */
+/* =========================================
+   COMPTE À REBOURS NORMAL
+   ========================================= */
 
 .countdown {
   display: grid;
+
   grid-template-columns:
     repeat(4, 1fr);
 
   gap: 8px;
 
-  margin: 16px auto 0;
+  margin:
+    16px auto 0;
 }
 
 .countdown div {
   min-height: 60px;
 
-  padding: 9px 4px 7px;
+  padding:
+    9px 4px 7px;
 
   border-radius: 8px;
 
@@ -686,6 +810,7 @@ body.invitation-open .invitation {
   display: block;
 
   font-size: 24px;
+
   font-weight: 700;
 }
 
@@ -698,22 +823,31 @@ body.invitation-open .invitation {
     "Montserrat", sans-serif;
 
   font-size: 8px;
-  letter-spacing: 0.08em;
+
+  letter-spacing:
+    0.08em;
 }
 
-/* LOGOS */
+/* =========================================
+   LOGOS SÉPARATEURS
+   ========================================= */
 
 .logo-separator {
   min-height: 20svh;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 }
 
 .logo-separator img {
-  width: min(36vw, 200px);
+  width:
+    min(36vw, 200px);
+
   max-width: 210px;
+
   height: auto;
 
   opacity: 1;
@@ -729,12 +863,16 @@ body.invitation-open .invitation {
     );
 }
 
-/* CARTES LIEU ET RSVP */
+/* =========================================
+   CARTES
+   ========================================= */
 
 .layered-card {
-  width: min(92vw, 390px);
+  width:
+    min(92vw, 390px);
 
   padding: 22px;
+
   border-radius: 24px;
 
   background:
@@ -746,7 +884,8 @@ body.invitation-open .invitation {
 }
 
 .inner-panel {
-  padding: 34px 22px;
+  padding:
+    34px 22px;
 
   border-radius: 16px;
 
@@ -765,32 +904,44 @@ body.invitation-open .invitation {
 }
 
 .card-eyebrow {
-  margin: 0 0 10px;
+  margin:
+    0 0 10px;
 
   font-family:
     "Montserrat", sans-serif;
 
   font-size: 12px;
-  letter-spacing: 0.24em;
 
-  text-transform: uppercase;
-  color: var(--soft-brown);
+  letter-spacing:
+    0.24em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--soft-brown);
 }
 
 .section-title {
-  margin: 0 0 16px;
+  margin:
+    0 0 16px;
 
   font-size: 45px;
+
   font-weight: 500;
 
   color: #72583f;
 }
 
-/* BOUTONS */
+/* =========================================
+   BOUTONS LUXUEUX
+   ========================================= */
 
 .button-row {
   display: flex;
+
   flex-direction: column;
+
   gap: 12px;
 
   margin-top: 24px;
@@ -798,12 +949,15 @@ body.invitation-open .invitation {
 
 .luxury-button {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   min-height: 48px;
 
-  padding: 13px 22px;
+  padding:
+    13px 22px;
 
   border-radius: 999px;
 
@@ -815,35 +969,48 @@ body.invitation-open .invitation {
     "Montserrat", sans-serif;
 
   font-size: 13px;
-  letter-spacing: 0.1em;
 
-  text-transform: uppercase;
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+
   text-decoration: none;
 
   cursor: pointer;
 }
 
 .luxury-button.primary {
-  background: #a88954;
-  color: var(--ivory);
-  border-color: #a88954;
+  background:
+    #a88954;
+
+  color:
+    var(--ivory);
+
+  border-color:
+    #a88954;
 }
 
 .luxury-button.secondary {
   background:
     rgba(255, 250, 240, 0.72);
 
-  color: #8a6b45;
+  color:
+    #8a6b45;
 }
 
 .luxury-button.full {
   width: 100%;
 }
 
-/* FORMULAIRE */
+/* =========================================
+   FORMULAIRE
+   ========================================= */
 
 .rsvp-form {
   display: grid;
+
   gap: 13px;
 
   margin-top: 20px;
@@ -863,35 +1030,43 @@ body.invitation-open .invitation {
   background:
     rgba(255, 250, 240, 0.9);
 
-  padding: 14px 16px;
+  padding:
+    14px 16px;
 
   font-family:
     "Cormorant Garamond", serif;
 
   font-size: 18px;
 
-  color: var(--chocolate);
+  color:
+    var(--chocolate);
+
   outline: none;
 }
 
 .rsvp-form textarea {
   min-height: 100px;
+
   resize: vertical;
 }
 
 .attendance-choice {
   display: grid;
+
   gap: 10px;
 }
 
 .attendance-choice label {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 
   min-height: 48px;
 
-  padding: 10px 14px;
+  padding:
+    10px 14px;
 
   border-radius: 18px;
 
@@ -903,6 +1078,7 @@ body.invitation-open .invitation {
     rgba(216, 198, 164, 0.52);
 
   font-size: 18px;
+
   cursor: pointer;
 }
 
@@ -911,20 +1087,26 @@ body.invitation-open .invitation {
   height: 18px;
 }
 
-/* CHOIX DU CÔTÉ */
+/* =========================================
+   CHOIX DU CÔTÉ
+   ========================================= */
 
 #guestSide {
   appearance: none;
+
   -webkit-appearance: none;
 
   width: 100%;
+
   min-height: 50px;
 
   padding:
-    13px 48px 13px 22px;
+    13px 48px
+    13px 22px;
 
   border:
-    1px solid #a88954;
+    1px solid
+    #a88954;
 
   border-radius: 999px;
 
@@ -951,25 +1133,33 @@ body.invitation-open .invitation {
     6px 6px,
     6px 6px;
 
-  background-repeat: no-repeat;
+  background-repeat:
+    no-repeat;
 
-  color: #8a6b45;
+  color:
+    #8a6b45;
 
   font-family:
     "Montserrat", sans-serif;
 
   font-size: 13px;
+
   font-weight: 500;
-  letter-spacing: 0.08em;
+
+  letter-spacing:
+    0.08em;
 
   text-align: center;
-  text-transform: uppercase;
+
+  text-transform:
+    uppercase;
 
   box-shadow:
     0 8px 20px
     rgba(61, 42, 34, 0.08);
 
   cursor: pointer;
+
   outline: none;
 
   transition:
@@ -987,11 +1177,13 @@ body.invitation-open .invitation {
     0 10px 24px
     rgba(61, 42, 34, 0.13);
 
-  transform: translateY(-1px);
+  transform:
+    translateY(-1px);
 }
 
 #guestSide:focus {
-  border-color: #8a6b45;
+  border-color:
+    #8a6b45;
 
   box-shadow:
     0 0 0 3px
@@ -1001,17 +1193,23 @@ body.invitation-open .invitation {
 }
 
 #guestSide:invalid {
-  color: #9b8064;
+  color:
+    #9b8064;
 }
 
-/* CRÉDIT */
+/* =========================================
+   CRÉDIT
+   ========================================= */
 
 .creator-credit {
   width:
     min(100vw, var(--page-width));
 
-  margin: 25px auto 0;
-  padding: 20px 18px 28px;
+  margin:
+    25px auto 0;
+
+  padding:
+    20px 18px 28px;
 
   text-align: center;
 
@@ -1025,7 +1223,8 @@ body.invitation-open .invitation {
   font-family:
     "Cormorant Garamond", serif;
 
-  color: #826744;
+  color:
+    #826744;
 
   box-shadow:
     0 -8px 24px
@@ -1033,50 +1232,70 @@ body.invitation-open .invitation {
 }
 
 .creator-credit p {
-  margin: 0 0 8px;
+  margin:
+    0 0 8px;
 
   font-size: 13px;
+
   font-weight: 500;
+
   line-height: 1.4;
 
-  letter-spacing: 0.04em;
+  letter-spacing:
+    0.04em;
 }
 
 .creator-credit a {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 7px;
 
-  color: #826744;
+  color:
+    #826744;
 
   font-size: 13px;
+
   font-weight: 600;
-  letter-spacing: 0.03em;
+
+  letter-spacing:
+    0.03em;
 
   text-decoration: none;
 }
 
 .creator-credit a:hover {
-  color: #634a32;
+  color:
+    #634a32;
 }
 
 .whatsapp-icon {
   display: block;
 
   width: 18px;
+
   height: 18px;
 
   fill: none;
-  stroke: currentColor;
+
+  stroke:
+    currentColor;
 
   stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+
+  stroke-linecap:
+    round;
+
+  stroke-linejoin:
+    round;
 }
 
-/* APPARITION AU DÉFILEMENT */
+/* =========================================
+   APPARITION AU SCROLL
+   ========================================= */
 
 .reveal-on-scroll {
   opacity: 0;
@@ -1091,11 +1310,10 @@ body.invitation-open .invitation {
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
-}
 
-/* APPARITION PROGRESSIVE
-   DES ÉLÉMENTS DE L’INVITATION */
+  transform:
+    translateY(0);
+}
 
 .first-page .arch-card > * {
   opacity: 0;
@@ -1108,9 +1326,7 @@ body.invitation-open .invitation {
 .arch-card > * {
   animation:
     elegantTextReveal
-    0.8s
-    ease
-    forwards;
+    0.8s ease forwards;
 }
 
 .first-page.is-visible
@@ -1188,11 +1404,6 @@ body.invitation-open .invitation {
   animation-delay: 3.75s;
 }
 
-/* OUVERTURE DES NOMS HÉBREUX */
-
-/* NOMS HÉBREUX :
-   ouverture puis un seul passage de lumière */
-
 .first-page.is-visible
 .hebrew-name {
   animation:
@@ -1210,9 +1421,6 @@ body.invitation-open .invitation {
     forwards;
 }
 
-/* NOMS FRANÇAIS :
-   un seul passage de lumière */
-
 .first-page.is-visible
 .name-wrap {
   animation:
@@ -1224,28 +1432,20 @@ body.invitation-open .invitation {
     forwards;
 }
 
-/* RAYON DANS LES NOMS FRANÇAIS */
-
-.first-page.is-visible
-.name-wrap {
-  animation:
-    lettersLightClean
-    5.5s
-    ease-in-out
-    2.8s
-    infinite;
-}
-
-/* ANIMATIONS */
+/* =========================================
+   ANIMATIONS
+   ========================================= */
 
 @keyframes floatEnvelope {
   0%,
   100% {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   50% {
-    transform: translateY(-6px);
+    transform:
+      translateY(-6px);
   }
 }
 
@@ -1267,7 +1467,8 @@ body.invitation-open .invitation {
     transform:
       translateY(12px);
 
-    filter: blur(2px);
+    filter:
+      blur(2px);
   }
 
   to {
@@ -1276,7 +1477,8 @@ body.invitation-open .invitation {
     transform:
       translateY(0);
 
-    filter: blur(0);
+    filter:
+      blur(0);
   }
 }
 
@@ -1288,7 +1490,8 @@ body.invitation-open .invitation {
       translateX(-50%)
       scaleX(0);
 
-    filter: blur(2px);
+    filter:
+      blur(2px);
   }
 
   60% {
@@ -1302,7 +1505,8 @@ body.invitation-open .invitation {
       translateX(-50%)
       scaleX(1);
 
-    filter: blur(0);
+    filter:
+      blur(0);
   }
 }
 
@@ -1318,7 +1522,342 @@ body.invitation-open .invitation {
   }
 }
 
-/* TÉLÉPHONE */
+/* =========================================
+   LOADER
+   ========================================= */
+
+body.is-loading {
+  overflow: hidden;
+
+  background:
+    #f6f0e8;
+}
+
+body.is-loading .opening,
+body.is-loading .invitation,
+body.is-loading .music-toggle {
+  visibility: hidden;
+
+  opacity: 0;
+}
+
+/* Fond du loader */
+
+.page-loader {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  width:
+    min(100vw, var(--page-width));
+
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    max(20px, env(safe-area-inset-top))
+    18px
+    max(20px, env(safe-area-inset-bottom));
+
+  background-image:
+    linear-gradient(
+      rgba(255, 250, 244, 0.08),
+      rgba(255, 250, 244, 0.08)
+    ),
+    url("images/background-envelope.jpeg");
+
+  background-size: cover;
+
+  background-position:
+    center top;
+
+  background-repeat:
+    no-repeat;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+/*
+  IMPORTANT :
+  colonne = compte à rebours SOUS le logo.
+*/
+
+.loader-content {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  transform:
+    translateY(-1vh);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    filter 0.7s ease;
+}
+
+/* Logo */
+
+.loader-logo-shell {
+  position: relative;
+
+  width:
+    min(54vw, 220px);
+
+  height:
+    min(54vw, 220px);
+
+  flex:
+    0 0 auto;
+}
+
+.loader-logo {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  transform: none;
+}
+
+.loader-logo-base {
+  opacity: 0.38;
+
+  filter:
+    grayscale(0.08)
+    brightness(1.08);
+}
+
+.loader-logo-fill {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  clip-path:
+    inset(0 100% 0 0);
+
+  -webkit-clip-path:
+    inset(0 100% 0 0);
+
+  animation:
+    fillLogoLeftToRight
+    4s
+    ease-in-out
+    forwards;
+}
+
+.loader-logo-fill
+.loader-logo {
+  opacity: 1;
+
+  filter: none;
+}
+
+.loader-logo-fill::after {
+  content: none !important;
+
+  display: none !important;
+}
+
+@keyframes fillLogoLeftToRight {
+  from {
+    clip-path:
+      inset(0 100% 0 0);
+
+    -webkit-clip-path:
+      inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path:
+      inset(0 0 0 0);
+
+    -webkit-clip-path:
+      inset(0 0 0 0);
+  }
+}
+
+/* =========================================
+   COMPTE À REBOURS DU LOADER
+   STYLE LUXURY
+   ========================================= */
+
+.loader-countdown {
+  width:
+    min(90%, 360px);
+
+  margin:
+    18px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 7px;
+
+  align-items: stretch;
+
+  justify-content: center;
+}
+
+.loader-countdown-box {
+  min-width: 0;
+
+  min-height: 60px;
+
+  padding:
+    10px 4px 8px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(168, 137, 84, 0.75);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 250, 240, 0.76);
+
+  color:
+    #8a6b45;
+
+  box-shadow:
+    0 8px 20px
+    rgba(61, 42, 34, 0.08),
+    inset 0 0 0 1px
+    rgba(255, 255, 255, 0.25);
+
+  backdrop-filter:
+    blur(3px);
+
+  -webkit-backdrop-filter:
+    blur(3px);
+}
+
+.loader-countdown-box span {
+  display: block;
+
+  font-family:
+    "Cormorant Garamond", serif;
+
+  font-size:
+    clamp(20px, 5.8vw, 26px);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  color:
+    #8a6b45;
+}
+
+.loader-countdown-box small {
+  display: block;
+
+  margin-top: 5px;
+
+  font-family:
+    "Montserrat", sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    #8a6b45;
+}
+
+/* Disparition loader */
+
+body.loader-finished
+.page-loader {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+body.loader-finished
+.loader-content {
+  opacity: 0;
+
+  transform:
+    translateY(-2vh)
+    scale(0.98);
+
+  filter:
+    blur(2px);
+}
+
+body.loader-finished
+.opening,
+body.loader-finished
+.music-toggle {
+  visibility: visible;
+
+  opacity: 1;
+
+  transition:
+    opacity 0.8s ease;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 430px) {
   .opening-content {
@@ -1330,7 +1869,8 @@ body.invitation-open .invitation {
     font-size:
       clamp(34px, 9.6vw, 46px);
 
-    margin-bottom: 86px;
+    margin-bottom:
+      86px;
   }
 
   .envelope-button {
@@ -1339,26 +1879,32 @@ body.invitation-open .invitation {
   }
 
   .open-instruction {
-    margin-top: 48px;
+    margin-top:
+      48px;
   }
 
   .arch-card {
     width:
       min(94vw, 392px);
 
-    min-height: 790px;
+    min-height:
+      790px;
 
     padding:
       52px 24px 32px;
   }
 
   .families {
-    font-size: 14px;
-    gap: 12px;
+    font-size:
+      14px;
+
+    gap:
+      12px;
   }
 
   .invite-text {
-    font-size: 20px;
+    font-size:
+      20px;
   }
 
   .couple-script {
@@ -1367,46 +1913,88 @@ body.invitation-open .invitation {
   }
 
   .hebrew-name {
-    font-size: 16px;
+    font-size:
+      16px;
   }
 
   .section-title {
-    font-size: 40px;
+    font-size:
+      40px;
   }
 
   .logo-separator img {
     width:
       min(48vw, 200px);
   }
+
+  .page-loader {
+    width: 100vw;
+  }
+
+  .loader-logo-shell {
+    width:
+      min(52vw, 210px);
+
+    height:
+      min(52vw, 210px);
+  }
+
+  .loader-countdown {
+    width:
+      min(92%, 350px);
+
+    gap:
+      6px;
+
+    margin-top:
+      16px;
+  }
+
+  .loader-countdown-box {
+    min-height:
+      57px;
+
+    padding:
+      9px 2px 7px;
+  }
 }
 
-/* PERSONNES QUI DÉSACTIVENT
-   LES ANIMATIONS */
+/* =========================================
+   ACCESSIBILITÉ
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior:
+      auto;
   }
 
   .envelope-button,
   .open-instruction,
   .reveal-on-scroll {
     animation: none;
+
     transition: none;
   }
 
   .first-page
   .arch-card > * {
     opacity: 1;
+
     transform: none;
+
     animation: none;
+
     filter: none;
   }
 
   .name-wrap,
   .hebrew-name {
-    animation: none !important;
-    background-image: none;
+    animation:
+      none !important;
+
+    background-image:
+      none;
   }
 
   .hebrew-name {
@@ -1417,226 +2005,10 @@ body.invitation-open .invitation {
 
     filter: none;
   }
-}
-/* =========================================
-   ÉCRAN DE CHARGEMENT
-   ========================================= */
 
-body.is-loading {
-  overflow: hidden;
-  background: #f6f0e8;
-}
-
-body.is-loading .opening,
-body.is-loading .invitation,
-body.is-loading .music-toggle {
-  visibility: hidden;
-  opacity: 0;
-}
-
-/* Fond du loader */
-
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-
-  width: min(100vw, var(--page-width));
-  height: 100vh;
-  height: 100svh;
-  height: 100dvh;
-
-  margin: auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  padding:
-    max(20px, env(safe-area-inset-top))
-    20px
-    max(20px, env(safe-area-inset-bottom));
-
-  background-image:
-    linear-gradient(
-      rgba(255, 250, 244, 0.08),
-      rgba(255, 250, 244, 0.08)
-    ),
-    url("images/background-envelope.jpeg");
-
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-
-  opacity: 1;
-  visibility: visible;
-
-  transition:
-    opacity 0.8s ease,
-    visibility 0.8s ease;
-}
-
-/* Centrage du logo */
-
-.loader-content {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transform: translateY(-1vh);
-
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease,
-    filter 0.7s ease;
-}
-
-/* Taille réelle du logo */
-
-.loader-logo-shell {
-  position: relative;
-
-  width: min(64vw, 250px);
-  height: min(64vw, 250px);
-
-  flex: 0 0 auto;
-}
-
-/* Position des deux logos */
-
-.loader-logo {
-  position: absolute;
-  inset: 0;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;
-
-  /*
-    Important :
-    aucun scale ici, sinon le remplissage
-    forme un rectangle plus petit que le logo.
-  */
-
-  transform: none;
-}
-
-/* Logo visible avant le remplissage */
-
-.loader-logo-base {
-  opacity: 0.42;
-
-  filter:
-    grayscale(0.08)
-    brightness(1.08);
-}
-
-/* Deuxième logo révélé de gauche à droite */
-
-.loader-logo-fill {
-  position: absolute;
-  inset: 0;
-
-  overflow: hidden;
-
-  clip-path: inset(0 100% 0 0);
-  -webkit-clip-path: inset(0 100% 0 0);
-
-  animation:
-    fillLogoLeftToRight
-    4s
-    ease-in-out
-    forwards;
-}
-
-/*
-  Aucun filtre et aucun rayon rectangulaire
-  sur la deuxième image.
-*/
-
-.loader-logo-fill .loader-logo {
-  opacity: 1;
-  filter: none;
-}
-
-/* Désactivation totale de l’ancien rayon carré */
-
-.loader-logo-fill::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* Remplissage de gauche à droite */
-
-@keyframes fillLogoLeftToRight {
-  from {
-    clip-path: inset(0 100% 0 0);
-    -webkit-clip-path: inset(0 100% 0 0);
-  }
-
-  to {
-    clip-path: inset(0 0 0 0);
-    -webkit-clip-path: inset(0 0 0 0);
-  }
-}
-
-/* Disparition du loader */
-
-body.loader-finished .page-loader {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-body.loader-finished .loader-content {
-  opacity: 0;
-
-  transform:
-    translateY(-2vh)
-    scale(0.98);
-
-  filter: blur(2px);
-}
-
-/* Apparition de la page d’accueil */
-
-body.loader-finished .opening,
-body.loader-finished .music-toggle {
-  visibility: visible;
-  opacity: 1;
-
-  transition: opacity 0.8s ease;
-}
-
-/* Téléphone */
-
-@media (max-width: 430px) {
-  .page-loader {
-    width: 100vw;
-
-    height: 100vh;
-    height: 100svh;
-    height: 100dvh;
-  }
-
-  .loader-logo-shell {
-    width: min(64vw, 250px);
-    height: min(64vw, 250px);
-  }
-}
-
-/* Accessibilité */
-
-@media (prefers-reduced-motion: reduce) {
   .page-loader,
   .loader-content {
-    transition-duration: 0.25s;
+    transition-duration:
+      0.25s;
   }
 }
