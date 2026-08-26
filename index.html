@@ -10,17 +10,35 @@
   />
 
   <meta
-    name="theme-color"
+    name="theme-colaor"
     content="#f6f0e8"
   />
 
   <title>Mariage Ilona & Alon</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS -->
 
-  <!-- Aperçu du faire-part sur WhatsApp et les réseaux sociaux -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
 
-  <meta property="og:type" content="website" />
+  <!-- FAVICON -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="images/logo.png"
+  />
+
+  <!-- =========================================
+       APERÇU WHATSAPP / FACEBOOK / RÉSEAUX
+       ========================================= -->
+
+  <meta
+    property="og:type"
+    content="website"
+  />
 
   <meta
     property="og:title"
@@ -29,20 +47,35 @@
 
   <meta
     property="og:description"
-    content="Nous avons la joie de vous inviter à célébrer notre mariage."
+    content="Nous avons la joie de vous inviter à célébrer notre mariage le 27 octobre 2026."
   />
 
   <meta
     property="og:url"
-    content="https://mariage-ilona-alon.vercel.app/"
+    content="https://mariage-ilona-alon-eta.vercel.app/"
   />
 
   <meta
     property="og:image"
-    content="https://mariage-ilona-alon.vercel.app/images/logo.png"
+    content="https://mariage-ilona-alon-eta.vercel.app/images/preview.png"
   />
 
-  <meta property="og:image:type" content="image/png" />
+  <meta
+    property="og:image:secure_url"
+    content="https://mariage-ilona-alon-eta.vercel.app/images/preview.png"
+  />
+
+  <meta
+    property="og:image:type"
+    content="image/png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Mariage Ilona et Alon - 27 octobre 2026"
+  />
+
+  <!-- TWITTER / X -->
 
   <meta
     name="twitter:card"
@@ -56,76 +89,109 @@
 
   <meta
     name="twitter:description"
-    content="Nous avons la joie de vous inviter à célébrer notre mariage."
+    content="Nous avons la joie de vous inviter à célébrer notre mariage le 27 octobre 2026."
   />
 
   <meta
     name="twitter:image"
-    content="https://mariage-ilona-alon.vercel.app/images/logo.png"
+    content="https://mariage-ilona-alon-eta.vercel.app/images/preview.png"
   />
 </head>
 
 <body class="is-loading">
 
-  <!-- ÉCRAN DE CHARGEMENT -->
+  <!-- =========================================
+       ÉCRAN DE CHARGEMENT
+       ========================================= -->
 
-<div
-  class="page-loader"
-  id="pageLoader"
-  role="status"
-  aria-label="Chargement du faire-part"
->
-  <div class="loader-content">
+  <div
+    class="page-loader"
+    id="pageLoader"
+    role="status"
+    aria-label="Chargement du faire-part"
+  >
+    <div class="loader-content">
 
-    <div class="loader-logo-shell">
+      <!-- LOGO -->
 
-      <img
-        class="loader-logo loader-logo-base"
-        src="images/logo.png"
-        alt=""
-        aria-hidden="true"
-      />
+      <div class="loader-logo-shell">
 
-      <div class="loader-logo-fill">
+        <!-- Logo clair de base -->
+
         <img
-          class="loader-logo"
+          class="loader-logo loader-logo-base"
           src="images/logo.png"
-          alt="Ilona et Alon"
+          alt=""
+          aria-hidden="true"
         />
+
+        <!-- Logo qui se remplit -->
+
+        <div class="loader-logo-fill">
+          <img
+            class="loader-logo"
+            src="images/logo.png"
+            alt="Ilona et Alon"
+          />
+        </div>
+
+      </div>
+
+      <!-- COMPTE À REBOURS SOUS LE LOGO -->
+
+      <div
+        class="loader-countdown"
+        id="loaderCountdown"
+      >
+
+        <div class="loader-countdown-box">
+          <span id="loaderDays">
+            00
+          </span>
+
+          <small>
+            JOURS
+          </small>
+        </div>
+
+        <div class="loader-countdown-box">
+          <span id="loaderHours">
+            00
+          </span>
+
+          <small>
+            HEURES
+          </small>
+        </div>
+
+        <div class="loader-countdown-box">
+          <span id="loaderMinutes">
+            00
+          </span>
+
+          <small>
+            MIN
+          </small>
+        </div>
+
+        <div class="loader-countdown-box">
+          <span id="loaderSeconds">
+            00
+          </span>
+
+          <small>
+            SEC
+          </small>
+        </div>
+
       </div>
 
     </div>
-
-    <!-- COMPTE À REBOURS SOUS LE LOGO -->
-
-    <div class="loader-countdown">
-
-      <div class="loader-countdown-box">
-        <span id="loaderDays">00</span>
-        <small>JOURS</small>
-      </div>
-
-      <div class="loader-countdown-box">
-        <span id="loaderHours">00</span>
-        <small>HEURES</small>
-      </div>
-
-      <div class="loader-countdown-box">
-        <span id="loaderMinutes">00</span>
-        <small>MIN</small>
-      </div>
-
-      <div class="loader-countdown-box">
-        <span id="loaderSeconds">00</span>
-        <small>SEC</small>
-      </div>
-
-    </div>
-
   </div>
-</div>
 
-  <!-- MUSIQUE -->
+  <!-- =========================================
+       MUSIQUE
+       ========================================= -->
 
   <audio
     id="weddingMusic"
@@ -137,12 +203,14 @@
     class="music-toggle"
     id="musicToggle"
     type="button"
-    aria-label="Musique"
+    aria-label="Lancer la musique"
   >
     ♪
   </button>
 
-  <!-- PAGE DE L’ENVELOPPE -->
+  <!-- =========================================
+       PAGE DE L’ENVELOPPE
+       ========================================= -->
 
   <section
     class="opening"
@@ -155,8 +223,8 @@
       </p>
 
       <h1 class="couple-names">
-        Ilona & Alon
-      </h1>
+  Ilona & <span class="alon-capital">A</span>lon
+</h1>
 
       <button
         class="envelope-button"
@@ -166,7 +234,7 @@
       >
         <img
           src="images/enveloppe.png"
-          alt="Enveloppe"
+          alt="Enveloppe de l’invitation"
           class="envelope-img"
         />
       </button>
@@ -178,19 +246,25 @@
     </div>
   </section>
 
-  <!-- FAIRE-PART -->
+  <!-- =========================================
+       FAIRE-PART
+       ========================================= -->
 
   <main
     class="invitation"
     id="invitation"
   >
 
-    <!-- INVITATION PRINCIPALE -->
+    <!-- =========================================
+         INVITATION PRINCIPALE
+         ========================================= -->
 
     <section
       class="invitation-page first-page reveal-on-scroll"
     >
       <div class="arch-card">
+
+        <!-- בס״ד -->
 
         <p
           class="bsd"
@@ -198,6 +272,8 @@
         >
           בס״ד
         </p>
+
+        <!-- PASSOUK -->
 
         <p
           class="pasuk"
@@ -208,9 +284,12 @@
 
         <div class="tiny-separator"></div>
 
-        <!-- FAMILLES -->
+        <!-- =========================================
+             FAMILLES
+             ========================================= -->
 
         <div class="families">
+
           <div>
             <p>
               M. & Mme Gilbert Dray
@@ -238,9 +317,12 @@
               M. & Mme Yohann Attali
             </p>
           </div>
+
         </div>
 
-        <!-- TEXTE D’INVITATION -->
+        <!-- =========================================
+             TEXTE D’INVITATION
+             ========================================= -->
 
         <p class="invite-text">
           C’est avec une immense reconnaissance
@@ -249,10 +331,15 @@
           enfants et petits-enfants
         </p>
 
-        <!-- NOMS DES MARIÉS -->
+        <!-- =========================================
+             NOMS DES MARIÉS
+             ========================================= -->
 
         <div class="names-block">
+
           <h2 class="couple-script">
+
+            <!-- ILONA -->
 
             <span class="name-wrap">
               Ilona
@@ -265,9 +352,13 @@
               </span>
             </span>
 
+            <!-- & -->
+
             <span class="amp">
               &
             </span>
+
+            <!-- ALON -->
 
             <span class="name-wrap">
               Alon
@@ -281,13 +372,20 @@
             </span>
 
           </h2>
+
         </div>
+
+        <!-- =========================================
+             PRÉSENCE
+             ========================================= -->
 
         <p class="presence">
           Et serions honorés de votre présence le
         </p>
 
-        <!-- DATE -->
+        <!-- =========================================
+             DATE
+             ========================================= -->
 
         <p class="date-line">
           27 octobre 2026
@@ -300,7 +398,9 @@
           ט״ז חשון תשפ״ז
         </p>
 
-        <!-- HORAIRES -->
+        <!-- =========================================
+             HORAIRES
+             ========================================= -->
 
         <p class="time-line">
           Kabalat Panim à 18h
@@ -310,7 +410,9 @@
           Houppa à 19h précises
         </p>
 
-        <!-- LIEU -->
+        <!-- =========================================
+             LIEU
+             ========================================= -->
 
         <p class="venue">
           SAKOYA EVENT HALL
@@ -320,48 +422,80 @@
           MAALE HAHAMISHA, ISRAËL
         </p>
 
-        <!-- COMPTE À REBOURS -->
+        <!-- =========================================
+             COMPTE À REBOURS
+             ========================================= -->
 
         <div
           class="countdown"
           id="countdown"
         >
+
           <div>
-            <span id="days">00</span>
-            <small>JOURS</small>
+            <span id="days">
+              00
+            </span>
+
+            <small>
+              JOURS
+            </small>
           </div>
 
           <div>
-            <span id="hours">00</span>
-            <small>HEURES</small>
+            <span id="hours">
+              00
+            </span>
+
+            <small>
+              HEURES
+            </small>
           </div>
 
           <div>
-            <span id="minutes">00</span>
-            <small>MIN</small>
+            <span id="minutes">
+              00
+            </span>
+
+            <small>
+              MIN
+            </small>
           </div>
 
           <div>
-            <span id="seconds">00</span>
-            <small>SEC</small>
+            <span id="seconds">
+              00
+            </span>
+
+            <small>
+              SEC
+            </small>
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- PREMIER LOGO -->
+    <!-- =========================================
+         PREMIER LOGO
+         ========================================= -->
 
-    <div class="logo-separator reveal-on-scroll">
+    <div
+      class="logo-separator reveal-on-scroll"
+    >
       <img
         src="images/logo.png"
-        alt="Ilona et Alon"
+        alt="Logo Ilona et Alon"
       />
     </div>
 
-    <!-- LIEU DE RÉCEPTION -->
+    <!-- =========================================
+         LIEU DE RÉCEPTION
+         ========================================= -->
 
-    <section class="info-section reveal-on-scroll">
+    <section
+      class="info-section reveal-on-scroll"
+    >
       <div class="layered-card">
 
         <div class="inner-panel">
@@ -380,6 +514,8 @@
 
           <div class="button-row">
 
+            <!-- WAZE -->
+
             <a
               class="luxury-button primary"
               href="https://waze.com/ul?q=Sakoya%20Event%20Hall%20Maale%20HaHamisha%20Israel"
@@ -388,6 +524,8 @@
             >
               Ouvrir Waze
             </a>
+
+            <!-- GOOGLE CALENDAR -->
 
             <a
               class="luxury-button secondary"
@@ -405,18 +543,26 @@
       </div>
     </section>
 
-    <!-- DEUXIÈME LOGO -->
+    <!-- =========================================
+         DEUXIÈME LOGO
+         ========================================= -->
 
-    <div class="logo-separator reveal-on-scroll">
+    <div
+      class="logo-separator reveal-on-scroll"
+    >
       <img
         src="images/logo.png"
-        alt="Ilona et Alon"
+        alt="Logo Ilona et Alon"
       />
     </div>
 
-    <!-- RSVP -->
+    <!-- =========================================
+         RSVP
+         ========================================= -->
 
-    <section class="info-section reveal-on-scroll">
+    <section
+      class="info-section reveal-on-scroll"
+    >
       <div class="layered-card">
 
         <div class="inner-panel">
@@ -438,7 +584,9 @@
             id="rsvpForm"
           >
 
-            <!-- CHOIX DU CÔTÉ -->
+            <!-- =========================================
+                 CÔTÉ
+                 ========================================= -->
 
             <select
               id="guestSide"
@@ -448,29 +596,33 @@
                 value=""
                 selected
                 disabled
-              >
-                Choisissez votre côté
+              >Vous êtes invité(e) par :
               </option>
 
               <option value="ilona">
-                Côté Ilona
+                Ilona
               </option>
 
               <option value="alon">
-                Côté Alon
+              Alon
               </option>
             </select>
 
-            <!-- NOM -->
+            <!-- =========================================
+                 NOM
+                 ========================================= -->
 
             <input
               id="guestName"
               type="text"
               placeholder="Nom complet"
+              autocomplete="name"
               required
             />
 
-            <!-- PRÉSENCE -->
+            <!-- =========================================
+                 PRÉSENCE
+                 ========================================= -->
 
             <div class="attendance-choice">
 
@@ -501,9 +653,13 @@
 
             </div>
 
-            <!-- NOMBRE DE PERSONNES -->
+            <!-- =========================================
+                 NOMBRE DE PERSONNES
+                 ========================================= -->
 
-            <select id="guestCount">
+            <select
+              id="guestCount"
+            >
               <option value="1">
                 1 personne
               </option>
@@ -529,12 +685,18 @@
               </option>
             </select>
 
-            <!-- MESSAGE -->
+            <!-- =========================================
+                 MESSAGE
+                 ========================================= -->
 
             <textarea
               id="guestMessage"
               placeholder="Un mot pour les mariés"
             ></textarea>
+
+            <!-- =========================================
+                 ENVOYER
+                 ========================================= -->
 
             <button
               class="luxury-button primary full"
@@ -550,7 +712,9 @@
       </div>
     </section>
 
-    <!-- PUBLICITÉ -->
+    <!-- =========================================
+         CRÉDIT
+         ========================================= -->
 
     <footer class="creator-credit">
 
@@ -565,6 +729,7 @@
         rel="noopener noreferrer"
         aria-label="Contacter Naomie Karsenty sur WhatsApp"
       >
+
         <svg
           class="whatsapp-icon"
           viewBox="0 0 24 24"
@@ -582,11 +747,16 @@
         <span>
           +972-53-423-5532
         </span>
+
       </a>
 
     </footer>
 
   </main>
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
 
   <script src="script.js"></script>
 
